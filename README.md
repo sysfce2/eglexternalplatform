@@ -11,7 +11,7 @@ implementation specifics out of EGL drivers by using application-facing EGL
 functions.
 
 Examples of low-level EGL platforms are `EGL_EXT_platform_device` or
-`EGL_KHR_platform_gbm`.
+`EGL_MESA_platform_surfaceless`.
 
 
 Installing the interface
@@ -19,14 +19,11 @@ Installing the interface
 
 This is a headers-only specification of the interface.
 
-To install the interface, just copy the header files under a certain system
-headers directory (e.g. /usr/include).
+A `meson.build` file is included, which will install the header files and
+generate a matching pkg-config file.
 
-A template *eglexternalplatform.pc* **pkg-config** is provided along with the
-header files. It can be edited to match the location of the header files and
-copied to an appropriate **pkg-config** configuration directory (e.g.
-/usr/share/pkgconfig).
-
+Alternately, `meson.build` has the necessary `override_dependency` call to work
+as a Meson subproject.
 
 Definitions
 -----------
